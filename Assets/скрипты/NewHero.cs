@@ -7,13 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class NewHero : Unit {
     [SerializeField]
-    private int lives = 5; //сколько раз можно отхватить пизды
+    private int health = 5; //сколько раз можно отхватить пизды
     [SerializeField]
     private float speed = 5.0F; //быстрые ноги пизды не боятся
     [SerializeField]
     private float jumpForce = 15.0F; //прыгучесть
 
     private bool isGrounded = false; //заземление
+
+    public int Health
+    {
+        get { return health; }
+        set { health = health + value; Debug.Log(health);}
+    }
 
     private DS DS;
     private PSP PSP;
@@ -162,9 +168,9 @@ public class NewHero : Unit {
     public override void ReciveDamage(int урон)
     {
         Debug.Log("Урон:"+ урон);
-        lives = lives - урон;
+        health = health - урон;
 
-        if (lives < 1)
+        if (health < 1)
         {
             SceneManager.LoadScene(Application.loadedLevel);
         }
@@ -173,7 +179,7 @@ public class NewHero : Unit {
             rigidbody.velocity = Vector3.zero;
             rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             rigidbody.AddForce(transform.right * (sprite.flipX ? 1.0F : -1.0F) * 15.0F, ForceMode2D.Impulse);
-            Debug.Log("Здоровье: "+lives);
+            Debug.Log("Здоровье: "+health);
         }
     }
 

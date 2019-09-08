@@ -65,7 +65,6 @@
     <Compile Include="Assets\AndroidNativPlugin\Scripts\AndroidNativePlugin\AndroidNativeController.cs" />
     <Compile Include="Assets\AndroidNativPlugin\Scripts\AndroidNativePlugin\AndroidNativePluginLibrary.cs" />
     <Compile Include="Assets\AndroidNativPlugin\Scripts\AndroidPlayerSettings\ChangeSettings.cs" />
-    <Compile Include="Assets\camerafar.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
@@ -73,7 +72,6 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
-    <Compile Include="Assets\svinrun.cs" />
     <Compile Include="Assets\скрипты\Background2D.cs" />
     <Compile Include="Assets\скрипты\Bang.cs" />
     <Compile Include="Assets\скрипты\beamScript.cs" />
@@ -85,6 +83,7 @@
     <Compile Include="Assets\скрипты\BulletDestroy.cs" />
     <Compile Include="Assets\скрипты\bulletHero.cs" />
     <Compile Include="Assets\скрипты\CameraController.cs" />
+    <Compile Include="Assets\скрипты\camerafar.cs" />
     <Compile Include="Assets\скрипты\crazyMario.cs" />
     <Compile Include="Assets\скрипты\damageBeam.cs" />
     <Compile Include="Assets\скрипты\DamageObject.cs" />
@@ -94,6 +93,7 @@
     <Compile Include="Assets\скрипты\guns\GAMEBOY.cs" />
     <Compile Include="Assets\скрипты\guns\PSP.cs" />
     <Compile Include="Assets\скрипты\Head.cs" />
+    <Compile Include="Assets\скрипты\heal_script.cs" />
     <Compile Include="Assets\скрипты\Joy\JoyButton1.cs" />
     <Compile Include="Assets\скрипты\Joy\JoyButtonDS.cs" />
     <Compile Include="Assets\скрипты\Joy\JoyButtonGB.cs" />
@@ -107,6 +107,8 @@
     <Compile Include="Assets\скрипты\removeTrigger.cs" />
     <Compile Include="Assets\скрипты\shhoter.cs" />
     <Compile Include="Assets\скрипты\shouldBeDestroied.cs" />
+    <Compile Include="Assets\скрипты\startNewMusic.cs" />
+    <Compile Include="Assets\скрипты\svinrun.cs" />
     <Compile Include="Assets\скрипты\trigger.cs" />
     <Compile Include="Assets\скрипты\Unit.cs" />
     <Compile Include="Assets\скрипты\Walker.cs" />
