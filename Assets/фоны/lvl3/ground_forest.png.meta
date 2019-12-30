@@ -8,6 +8,12 @@ TextureImporter:
     21300006: ground_forest_left_top
     21300008: ground_forest_right_middle
     21300010: ground_forest_left_middle
+    21300012: ground_forest_middle_center_26
+    21300014: ground_forest_left_middle_26
+    21300016: ground_forest_left_top_26
+    21300018: ground_forest_right_top_26
+    21300020: ground_forest_right_middle_26
+    21300022: ground_forest_middle_center_16
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -227,6 +233,126 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d582ac37304776a4489d77a9b06a77db
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_forest_middle_center_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 185
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d994a5a8326e324fabce8db902791ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_forest_left_middle_26
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 0
+        width: 211
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f02ee0283825249a84437b77ba34fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_forest_left_top_26
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 284
+        width: 211
+        height: 308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a704a431a51d87b489f6a52fbe1c7dd8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_forest_right_top_26
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 284
+        width: 215
+        height: 309
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903655f29d8302d43b10d2f13eb49287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_forest_right_middle_26
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 0
+        width: 215
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3517fd6f1693a548a64172bc39736a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_forest_middle_center_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 94
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3b9c25eb7753e46ae9c56d99e82680
       vertices: []
       indices: 
       edges: []

@@ -21,8 +21,8 @@ public class CameraController : MonoBehaviour
         try { 
             Vector3 position = target.position;
             position.z = -10.0F;
-            position.y += 5.0F;
-            position.x += 5.0f;
+            position.y += 1.0F;
+            position.x += 3.0f;
             transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
             MemoryPosition = target.position;
         }
