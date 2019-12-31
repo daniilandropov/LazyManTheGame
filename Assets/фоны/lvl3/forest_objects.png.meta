@@ -7,6 +7,12 @@ TextureImporter:
     21300004: forest_objects_bush_preconer
     21300006: forest_objects_lil_bush
     21300008: "forest_objects_\u0448\u043D\u044B\u0440\u0438"
+    21300010: "\u043F\u0435\u043D\u044C"
+    21300012: forest_objects_tree
+    21300014: "forest_objects_\u0431\u043E\u043B\u044C\u0448\u0430\u044F_\u0432\u0435\u0442\u043A\u0430"
+    21300016: "forest_objects_\u043C\u0430\u043B\u0430\u044F_\u0432\u0435\u0442\u043A\u0430"
+    21300018: "forest_objects_\u043B\u0438\u0441\u0442\u0432\u0430"
+    21300020: "forest_objects_\u0431\u0440\u0435\u0432\u043D\u0430"
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -199,13 +205,133 @@ TextureImporter:
         width: 530
         height: 208
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 524e9b70ac40d524db27a41c06ae7b6d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u043F\u0435\u043D\u044C"
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1720
+        width: 212
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c1713eb3b714d4b9783b9974eeee5a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forest_objects_tree
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1615
+        width: 124
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e3d1d0eba849a40a371ceb785e0b7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "forest_objects_\u0431\u043E\u043B\u044C\u0448\u0430\u044F_\u0432\u0435\u0442\u043A\u0430"
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1915
+        width: 224
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c68dcf4961cfd4994797ea87eaebf9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "forest_objects_\u043C\u0430\u043B\u0430\u044F_\u0432\u0435\u0442\u043A\u0430"
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1845
+        width: 160
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c73bf19d1ecd34b81fd90742802256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "forest_objects_\u043B\u0438\u0441\u0442\u0432\u0430"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 492
+        width: 1114
+        height: 711
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efee10cd5c2f08643a8bf3e82aa81e3f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "forest_objects_\u0431\u0440\u0435\u0432\u043D\u0430"
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 1615
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e650cb0a03e36a54b8f7fac7ea32975b
       vertices: []
       indices: 
       edges: []
