@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 448}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 398}
   m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
-  controlID: 119
+  controlID: 61
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 398}
   m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 118
+  controlID: 124
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -57446
+  m_LastSelectedObjectID: -10520
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -415,34 +415,34 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - "Assets/Resources/lvl3/\u0432\u043E\u043B\u043A\u0438"
+    - "Assets/\u0444\u043E\u043D\u044B/lvl3"
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - "Assets/Resources/lvl3/\u0432\u043E\u043B\u043A\u0438"
+  - "Assets/\u0444\u043E\u043D\u044B/lvl3"
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Admin\Documents\LazyManTheGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 63}
-    m_SelectedIDs: 7c930500
-    m_LastClickedID: 365436
-    m_ExpandedIDs: 0000000058270000c027000010280000402900008c2900008e290000ce290000422a0000c22a0000582b0000962b0000a42b0000c82b0000122c0000bc2c0000fa2c0000382f0000ba5d000000ca9a3b
+    scrollPos: {x: 0, y: 425}
+    m_SelectedIDs: 58290000
+    m_LastClickedID: 10584
+    m_ExpandedIDs: 0000000066270000d22700002428000058290000a4290000a6290000e62900006e2a0000882b0000c62b0000d42b0000fa2b0000442c0000ee2c00002c2d00006a2f0000945e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: LazyManTheGame
+      m_OriginalName: LazyManTheGame
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 10870
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 
@@ -456,7 +456,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000058270000c027000010280000402900008c290000ce290000422a0000582b0000962b0000a42b0000c82b0000122c0000bc2c0000fa2c0000382f0000ba5d0000
+    m_ExpandedIDs: 0000000066270000d22700002428000058290000a4290000a6290000e62900006e2a0000882b0000c62b0000d42b0000fa2b0000442c0000ee2c00002c2d00006a2f0000945e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -484,7 +484,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 588106002028000000000000422700007c290000c44b0000fa4200008c2a0000ec2e0000702d000014290000a02c0000dccf0100
+    m_ExpandedInstanceIDs: 588106002028000000000000422700007c290000c44b0000fa4200008c2a0000ec2e0000702d000014290000a02c0000dccf0100322a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -623,9 +623,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 15.574887, y: 12.826408, z: 2.366783}
+    m_Target: {x: -2.1359704, y: 11.8513975, z: -0.000086609274}
     speed: 2
-    m_Value: {x: 15.574887, y: 12.826408, z: 2.366783}
+    m_Value: {x: -2.1359704, y: 11.8513975, z: -0.000086609274}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -657,9 +657,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 60.930717
+    m_Target: 7.126986
     speed: 2
-    m_Value: 60.930717
+    m_Value: 7.126986
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -783,7 +783,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 66}
     m_SelectedIDs: 20290000
     m_LastClickedID: 10528
-    m_ExpandedIDs: 0000000058270000c027000010280000402900008c2900008e290000ce290000422a0000582b0000962b0000a42b0000c82b0000122c0000bc2c0000fa2c0000382f0000ba5d000000ca9a3b
+    m_ExpandedIDs: 0000000066270000d22700002428000058290000a4290000a6290000e62900006e2a0000882b0000c62b0000d42b0000fa2b0000442c0000ee2c00002c2d00006a2f0000945e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -811,7 +811,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: ae98ffff
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000058270000c027000010280000402900008c290000ce290000422a0000582b0000962b0000a42b0000c82b0000122c0000bc2c0000fa2c0000382f0000ba5d0000
+    m_ExpandedIDs: 0000000066270000d22700002428000058290000a4290000a6290000e62900006e2a0000882b0000c62b0000d42b0000fa2b0000442c0000ee2c00002c2d00006a2f0000945e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -895,23 +895,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8ac70800
-      m_LastClickedID: 0
-      m_ExpandedIDs: 928bffffce8bffff1294ffff8497ffffc497ffff68acffffbec5ffff3ac8ffff86eaffffbafaffffc6faffffdcfafffffefaffffd4fbffff
+      m_SelectedIDs: f6faffff
+      m_LastClickedID: -1290
+      m_ExpandedIDs: 14daffff34ddffffccfbffff1e3a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: "\u0432\u043E\u043B\u043A"
-        m_OriginalName: "\u0432\u043E\u043B\u043A"
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -5498
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 

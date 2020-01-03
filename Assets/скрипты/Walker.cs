@@ -15,6 +15,9 @@ public class Walker : Monster {
     private bool jumper = false; // он прыгун?
 
     [SerializeField]
+    private bool earth_touch_jumper = false; // прыгает касаясь земли?
+
+    [SerializeField]
     private float jumpForce = 1.0F; // и если да, то на сколько высоко?
 
     private Bullet bullet;
@@ -49,9 +52,10 @@ public class Walker : Monster {
 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
 
+        var bias = 1.3F;
+
         if (jumper) // прыгун
         {
-            var bias = 1.5F;
             var point1 = head[3].position;
             point1.x += bias;
             var point2 = head[4].position;
@@ -64,8 +68,23 @@ public class Walker : Monster {
 
             Collider2D[] coliders2 = Physics2D.OverlapAreaAll(point1, point2);
             Collider2D[] coliders3 = Physics2D.OverlapAreaAll(point3, point4);
-
+            
             if ((coliders2.Length > 1 && coliders2.All(x => !x.GetComponentInParent<BulletDestroy>())) || (coliders3.Length > 1 && coliders3.All(x => !x.GetComponentInParent<BulletDestroy>())))
+            {
+                rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            }
+        }
+
+        if (earth_touch_jumper)
+        {
+            var point_noga_1 = head[7].position;
+            point_noga_1.x -= bias;
+            var point_noga_2 = head[8].position;
+            point_noga_2.x -= bias;
+
+            Collider2D[] coliders_nogi = Physics2D.OverlapAreaAll(point_noga_1, point_noga_2);
+
+            if ((coliders_nogi.Length > 1 && coliders.All(x => !x.GetComponentInParent<NewHero>())))
             {
                 rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             }
