@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Walker : Monster {
 
     [SerializeField]
     private float speed = 1.0F;
-
-    [SerializeField]
-    private bool isLeft = false; // повернуть налево этого долбаеба изначально?
 
     [SerializeField]
     private bool jumper = false; // он прыгун?
@@ -20,56 +18,43 @@ public class Walker : Monster {
     [SerializeField]
     private float jumpForce = 1.0F; // и если да, то на сколько высоко?
 
+    [SerializeField]
+    protected bool isLeft = false;
+
+    [SerializeField]
+    protected bool debuging = false;
+
     private Bullet bullet;
+    
 
-    private Transform[] head;
-
-    private SpriteRenderer sprite;
-
-    private Vector3 direction;
-
-    new private Rigidbody2D rigidbody;
-
-    protected override void Awake()
+    protected void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        base.Start();
+        direction = transform.right;
 
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        if (isLeft)
+        {
+            direction *= -1.0F;
 
-        head = GetComponentsInChildren<Transform>();
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, Time.deltaTime);
+        }
     }
 
     private void Movie()
     {
-        Collider2D[] coliders = Physics2D.OverlapAreaAll(head[3].position, head[4].position);
-        Collider2D[] coliders1 = Physics2D.OverlapAreaAll(head[5].position, head[6].position);
-
-        if ((coliders.Length > 1 && coliders.All(x=>!x.GetComponentInParent<NewHero>()))  || (coliders1.Length > 1 && coliders1.All(x => !x.GetComponentInParent<NewHero>())))
+        Collider2D[] coliders = Physics2D.OverlapAreaAll(head[4].position, head[5].position); // точки касания для разворота
+        
+        if (coliders.Length > 0 && coliders.All(x=>x.GetComponentInParent<BulletDestroy>() || x.GetComponentInParent<timeToGOBACK>() || x.GetComponentInParent<Monster>()))
         {
             direction *= -1.0F;
-            sprite.flipX = direction.x < 0.0F;
+            transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1, 1, 1));
         }
 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
 
-        var bias = 1.3F;
-
         if (jumper) // прыгун
         {
-            var point1 = head[3].position;
-            point1.x += bias;
-            var point2 = head[4].position;
-            point2.x += bias;
-
-            var point3 = head[5].position;
-            point3.x -= bias;
-            var point4 = head[6].position;
-            point4.x -= bias;
-
-            Collider2D[] coliders2 = Physics2D.OverlapAreaAll(point1, point2);
-            Collider2D[] coliders3 = Physics2D.OverlapAreaAll(point3, point4);
-            
-            if ((coliders2.Length > 1 && coliders2.All(x => !x.GetComponentInParent<BulletDestroy>())) || (coliders3.Length > 1 && coliders3.All(x => !x.GetComponentInParent<BulletDestroy>())))
+            if (coliders.Length > 0 && coliders.All(x => x.GetComponentInParent<BulletDestroy>() || x.GetComponentInParent<timeToGOBACK>()))
             {
                 rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             }
@@ -77,61 +62,27 @@ public class Walker : Monster {
 
         if (earth_touch_jumper)
         {
-            var point_noga_1 = head[7].position;
-            point_noga_1.x -= bias;
-            var point_noga_2 = head[8].position;
-            point_noga_2.x -= bias;
+            Collider2D[] coliders_nogi = Physics2D.OverlapAreaAll(head[6].position, head[7].position); // ноги прыжок
 
-            Collider2D[] coliders_nogi = Physics2D.OverlapAreaAll(point_noga_1, point_noga_2);
-
-            if ((coliders_nogi.Length > 1 && coliders.All(x => !x.GetComponentInParent<NewHero>())))
+            if ((coliders_nogi.Length > 0 && coliders.All(x => x.GetComponentInParent<BulletDestroy>())))
             {
                 rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             }
+        }
+
+        Collider2D[] headColliders = Physics2D.OverlapAreaAll(head[2].position, head[3].position);
+
+        if (headColliders.Length > 0 && headColliders.All(x => x.GetComponentInParent<NewHero>()))
+        {
+            LazyMan.Jump(15.0F);
+            ReciveDamage(1);
         }
     }
 
     protected override void Update()
     {
-       Movie();
+        if(active) Movie();
     }
 
-    protected override void Start()
-    {
-        direction = transform.right;
-
-        if (isLeft)
-        {
-            direction *= -1.0F;
-            sprite.flipX = direction.x < 0.0F;
-
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
-        }
-        
-    }
-
-    protected virtual void OnTriggerEnter2D(Collider2D collider)
-    {
-        NewHero unit = collider.GetComponent<NewHero>();
-
-        if (unit && unit is NewHero)
-        {
-            Collider2D[] coliders = Physics2D.OverlapAreaAll(head[2].position, head[1].position);
-
-            if (coliders.Length > 1) //исправить эту корявую хуету, домажит через пизду //более менее
-            {
-                ReciveDamage(1);
-                unit.Jump();
-            }
-            else unit.ReciveDamage(1);
-        }
-
-        bulletHero bulletHero = collider.GetComponent<bulletHero>();
-
-        if (bulletHero)
-        {
-            ReciveDamage(1);
-        }
-    }
 
 }

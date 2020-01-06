@@ -7,8 +7,7 @@ public class EmenyBullet : MonoBehaviour
     private GameObject parent;
     public GameObject Parent { set { parent = value; } get { return parent; } }
 
-    private Vector3 direction;
-    public Vector3 Direction { set { direction = value; } }
+    public Vector3 Direction;
 
     private float speed = 10.0F;
 
@@ -19,8 +18,8 @@ public class EmenyBullet : MonoBehaviour
 
     protected virtual void Update()
     {
-        direction.y = 0.4F;
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
+        Direction.y = 0.4F;
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + Direction, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -35,16 +34,6 @@ public class EmenyBullet : MonoBehaviour
             BulletDestroy.BangHere(collider.transform);
         }
 
-        Monster Monster = collider.GetComponent<Monster>();
-
-        if (Monster)
-        {
-            Monster.ReciveDamage(1);
-            Destroy(gameObject);
-
-            BulletDestroy.BangHere(collider.transform);
-        }
-
         bulletHero bulletHero = collider.GetComponent<bulletHero>();
 
         if (bulletHero) 
@@ -54,9 +43,9 @@ public class EmenyBullet : MonoBehaviour
             BulletDestroy.BangHere(collider.transform);
         }
         
-        MonoBehaviour unit = collider.GetComponent<MonoBehaviour>();
+        BulletDestroy bd = collider.GetComponent<BulletDestroy>();
 
-        if (unit && unit.gameObject != parent)
+        if (bd && bd.gameObject != parent)
         {
             Destroy(gameObject);
         }

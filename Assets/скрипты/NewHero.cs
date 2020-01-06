@@ -11,7 +11,7 @@ public class NewHero : Unit {
     [SerializeField]
     private float speed = 5.0F; //быстрые ноги пизды не боятся
     [SerializeField]
-    private float jumpForce = 15.0F; //прыгучесть
+    public float jumpForce = 15.0F; //прыгучесть
 
     private bool isGrounded = false; //заземление
 
@@ -82,7 +82,7 @@ public class NewHero : Unit {
 
         if (Input.GetButton("Horizontal")) Run(Input.GetAxis("Horizontal"));
         //if (joystick.Horizontal != 0) Run(joystick.Horizontal);
-        if (Input.GetButtonDown("Jump")) Jump();
+        if (Input.GetButtonDown("Jump")) if (isGrounded) Jump(jumpForce);
         //if (joyButtonSPACE.Pressed) Jump();
         
 
@@ -112,46 +112,25 @@ public class NewHero : Unit {
 
     private void ShootPSP()
     {
-        Vector3 position = transform.position;
-        position.y += 1.5F;
-        PSP bullet;
-
-        bullet = PSP;
-
-        PSP newBullet = Instantiate(bullet, position, bullet.transform.rotation);
-
-        newBullet.Direction = newBullet.transform.right * (sprite.flipX ? -1.0F : 1.0F);
-        newBullet.Parent = gameObject;
-
-        ShootTimer = ShootSpeed;
-
+        Shoot(PSP);
     }
 
     private void ShootDS()
     {
-        Vector3 position = transform.position;
-        position.y += 1.5F;
-        DS bullet;
-
-        bullet = DS;
-
-        DS newBullet = Instantiate(bullet, position, bullet.transform.rotation);
-
-        newBullet.Direction = newBullet.transform.right * (sprite.flipX ? -1.0F : 1.0F);
-        newBullet.Parent = gameObject;
-
-        ShootTimer = ShootSpeed;
+        Shoot(DS);
     }
 
     private void ShootGAMEBOY()
     {
+        Shoot(GAMEBOY);
+    }
+
+    private void Shoot(bulletHero cast_bullet)
+    {
         Vector3 position = transform.position;
         position.y += 1.5F;
-        GAMEBOY bullet;
 
-        bullet = GAMEBOY;
-
-        GAMEBOY newBullet = Instantiate(bullet, position, bullet.transform.rotation);
+        var newBullet = Instantiate(cast_bullet, position, cast_bullet.transform.rotation);
 
         newBullet.Direction = newBullet.transform.right * (sprite.flipX ? -1.0F : 1.0F);
         newBullet.Parent = gameObject;
@@ -159,15 +138,16 @@ public class NewHero : Unit {
         ShootTimer = ShootSpeed;
     }
 
-    public void Jump()
+    public void Jump(float jf)
     {
-        if (isGrounded) rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        rigidbody.velocity = Vector3.Scale(rigidbody.velocity, new Vector3(1, 0, 0));
+        rigidbody.AddForce(transform.up * jf, ForceMode2D.Impulse);
         //joyButtonSPACE.SetPressedFalse();
     }
 
     public override void ReciveDamage(int урон)
     {
-        Debug.Log("Урон:"+ урон);
+        //Debug.Log("Урон:"+ урон);
         health = health - урон;
 
         if (health < 1)
@@ -194,10 +174,10 @@ public class NewHero : Unit {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Unit unit = collision.gameObject.GetComponent<Unit>();
-        if (unit)
+        JumpObject jo = collision.gameObject.GetComponent<JumpObject>();
+        if (jo)
         {
-            ReciveDamage(1);
+            Jump(jo.jumpForce);
         }
     }
 }

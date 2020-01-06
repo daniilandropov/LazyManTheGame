@@ -6,11 +6,13 @@ using UnityEngine;
 public class bulletHero : MonoBehaviour {
 
     private GameObject parent;
+
+    public Vector3 Direction;
     public GameObject Parent { set { parent = value; } }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        MonoBehaviour unit = collider.GetComponent<MonoBehaviour>();
+        BulletDestroy unit = collider.GetComponent<BulletDestroy>();
 
         if (unit && unit.gameObject != parent)
         {

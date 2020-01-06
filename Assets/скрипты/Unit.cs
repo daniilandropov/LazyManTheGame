@@ -10,7 +10,7 @@ public class Unit : MonoBehaviour {
         Die();
     }
 
-    protected virtual void Die()
+    protected void Die()
     {
         Destroy(gameObject);
     }

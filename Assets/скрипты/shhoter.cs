@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Component = System.ComponentModel.Component;
 
 public class shhoter : Monster {
 
@@ -8,50 +11,28 @@ public class shhoter : Monster {
     private float rate = 2.0F;
 
     [SerializeField]
-    private bool isLeft = false;
-
-    [SerializeField]
     private bool BOSS = false;
 
     [SerializeField]
-    private int boosSize = 5;
-
-    [SerializeField]
-    private float boosDistance = 5.0F;
+    private int boosSize = 5; // насколько большой босс
 
     private EmenyBullet bullet;
-
-    private SpriteRenderer sprite;
-
-    private Transform[] head;
-
-    private Vector3 direction;
-
-    protected override void Awake()
-    {
-        sprite = GetComponentInChildren<SpriteRenderer>();
-        bullet = Resources.Load<EmenyBullet>("CARTR");
-
-        direction = transform.right;
-
-        if (isLeft)
-        {
-            direction *= -1.0F;
-            sprite.flipX = direction.x < 0.0F;
-
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + direction,  Time.deltaTime);
-        }
-    }
     
-    protected override void Start()
+    private float povorot = 1.0F;
+    private float povorotHistory = 1.0F;
+
+    protected void Start()
     {
+        base.Start();
+        bullet = Resources.Load<EmenyBullet>("CARTR");
         InvokeRepeating("Shoot", rate, rate);
     }
 
     private void Shoot()
     {
-        var povorot = isLeft ? -1.0F : 1.0F;
-        Vector3 pos = transform.position;
+        Vector3 position = transform.position;
+        position.y = head[4].position.y;
+        position.x = head[4].position.x;
 
         if (BOSS)
         {
@@ -62,44 +43,33 @@ public class shhoter : Monster {
             myInt = rnd.Next(0, boosSize);
             myFloat = myInt + 0.5f;
 
-            pos.y += myFloat;
-            pos.x += boosDistance * povorot;
+            position.y += myFloat;
         }
-        else
-        {
-            pos.y += 0.5F;
-            pos.x += 0.8F * povorot;
-        }
-        
-        EmenyBullet newBullet = Instantiate(bullet, pos, bullet.transform.rotation) as EmenyBullet;
-        newBullet.Direction = newBullet.transform.right * (sprite.flipX ? -1.0F : 1.0F);
+
+        var newBullet = Instantiate(bullet, position, bullet.transform.rotation);
+
+        newBullet.Direction = newBullet.transform.right * povorot;
         newBullet.Parent = gameObject;
-
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collider)
+    protected override void Update()
     {
-        NewHero unit = collider.GetComponent<NewHero>();
+        Collider2D[] headColliders = Physics2D.OverlapAreaAll(head[2].position, head[3].position);
 
-        if (unit && unit is NewHero)
+        if (headColliders.Length > 0 && headColliders.All(x => x.GetComponentInParent<NewHero>()))
         {
-            Collider2D[] coliders = Physics2D.OverlapAreaAll(head[2].position, head[1].position);
-
-            if (coliders.Length > 1)
-            {
-                ReciveDamage(1);
-                unit.Jump();
-            }
-            else unit.ReciveDamage(1);
+            LazyMan.Jump(15.0F);
+            ReciveDamage(1);
         }
 
-        bulletHero bulletHero = collider.GetComponent<bulletHero>();
+        povorot = LazyMan.transform.position.x <= head[1].position.x ? -1.0F : 1.0F; // узнаем, левее или правее от стрелюна игрок
 
-        if (bulletHero)
+        if (povorot != povorotHistory)
         {
-            ReciveDamage(1);
-
+            povorotHistory = povorot;
+            transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1, 1, 1));
         }
     }
+    
 
 }

@@ -5,8 +5,6 @@ using UnityEngine;
 public class PSP : bulletHero
 {
     private float speed = 12.0F;
-    private Vector3 direction;
-    public Vector3 Direction { set { direction = value; } }
 
     private SpriteRenderer sprite;
 
@@ -22,8 +20,8 @@ public class PSP : bulletHero
 
     protected virtual void Update()
     {
-        direction.y = 0.7F;
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
+        Direction.y = 0.7F;
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + Direction, speed * Time.deltaTime);
     }
 
 }
