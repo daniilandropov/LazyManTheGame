@@ -35,7 +35,7 @@ public class Walker : Monster {
         if (isLeft)
         {
             direction *= -1.0F;
-
+            transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1, 1, 1));
             transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, Time.deltaTime);
         }
     }
@@ -54,7 +54,7 @@ public class Walker : Monster {
 
         if (jumper) // прыгун
         {
-            if (coliders.Length > 0 && coliders.All(x => x.GetComponentInParent<BulletDestroy>() || x.GetComponentInParent<timeToGOBACK>()))
+            if (coliders.Length > 0 && coliders.All(x => x.GetComponentInParent<BulletDestroy>() || x.GetComponentInParent<timeToGOBACK>() || x.GetComponentInParent<NewHero>()))
             {
                 rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             }
@@ -75,7 +75,7 @@ public class Walker : Monster {
         if (headColliders.Length > 0 && headColliders.All(x => x.GetComponentInParent<NewHero>()))
         {
             LazyMan.Jump(15.0F);
-            ReciveDamage(1);
+            ReciveDamage(1, true);
         }
     }
 

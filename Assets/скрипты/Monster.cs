@@ -25,6 +25,11 @@ public class Monster : Unit {
     [SerializeField]
     private Sprite defaultSprite;
 
+    [SerializeField]
+    public AudioClip damageAudio;
+    [SerializeField]
+    AudioSource damageAudioSource;
+
 
     protected bool active = true;
 
@@ -36,8 +41,11 @@ public class Monster : Unit {
         head = GetComponentsInChildren<Transform>();
     }
 
-    public override void ReciveDamage(int урон)
+    public void ReciveDamage(int урон, bool sound)
     {
+        if(damageAudioSource!= null && damageAudio != null && sound)
+            damageAudioSource.PlayOneShot(damageAudio);
+        
         health = health - урон;
         if (health < 1)
         {
@@ -60,6 +68,8 @@ public class Monster : Unit {
 
     protected void Die()
     {
+        if (!active)
+            return;
         active = false;
         boxCollider.enabled = false;
         rigidbody.AddForce(transform.up * 10.0F, ForceMode2D.Impulse);
@@ -83,14 +93,14 @@ public class Monster : Unit {
 
         if (bulletHero)
         {
-            ReciveDamage(1);
+            ReciveDamage(1, true);
         }
 
         DamageObject damageObject = collider.GetComponent<DamageObject>();
 
         if (damageObject)
         {
-            ReciveDamage(100);
+            ReciveDamage(100, false);
         }
     }
 

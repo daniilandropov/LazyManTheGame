@@ -74,6 +74,7 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\JumpObject.cs" />
     <Compile Include="Assets\move_platform.cs" />
+    <Compile Include="Assets\NogiLenivca.cs" />
     <Compile Include="Assets\timeToGOBACK.cs" />
     <Compile Include="Assets\скрипты\Background2D.cs" />
     <Compile Include="Assets\скрипты\Bang.cs" />

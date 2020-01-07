@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/\u0444\u043E\u043D\u044B/\u0441\u0446\u0435\u043D\u044B/forest.unity"
     guid: 36c56cde160ff5f49ac5b967f86879ba
+  - enabled: 1
+    path: "Assets/\u0444\u043E\u043D\u044B/\u0441\u0446\u0435\u043D\u044B/circus.unity"
+    guid: 8b6b0d765cf33c948bf29621ba468690
   m_configObjects: {}

@@ -31,6 +31,11 @@ public class NewHero : Unit {
     public float AttackSpeed = 0.2F;
     public float AttackTimer = 0.0f;
 
+    [SerializeField]
+    public AudioClip jumpAudio;
+    [SerializeField]
+    AudioSource jumpAudioSource;
+
     //protected Joystick joystick;
     //protected JoyButtonDS joyButtonDS;
     //protected JoyButtonPSP joyButtonPSP;
@@ -72,6 +77,12 @@ public class NewHero : Unit {
         CheckGround();
     }
 
+    private void PlayJumpSound()
+    {
+        if (jumpAudioSource != null && jumpAudio != null)
+            jumpAudioSource.PlayOneShot(jumpAudio);
+    }
+
     private void Update()
     {
         if (isGrounded) State = CharState.Idle;
@@ -82,7 +93,11 @@ public class NewHero : Unit {
 
         if (Input.GetButton("Horizontal")) Run(Input.GetAxis("Horizontal"));
         //if (joystick.Horizontal != 0) Run(joystick.Horizontal);
-        if (Input.GetButtonDown("Jump")) if (isGrounded) Jump(jumpForce);
+        if (Input.GetButtonDown("Jump")) if (isGrounded)
+        {
+            Jump(jumpForce);
+            PlayJumpSound();
+        }
         //if (joyButtonSPACE.Pressed) Jump();
         
 

@@ -23,7 +23,7 @@ public class DamageObject : MonoBehaviour {
 
         if (monster && monster is Monster)
         {
-            monster.ReciveDamage(урон);
+            monster.ReciveDamage(урон, false);
         }
 
         if(ИсчезатьПослеКасания)

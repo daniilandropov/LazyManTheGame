@@ -1,0 +1,2 @@
+C:\Users\Admin\Documents\LazyManTheGame\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\LazyManTheGame\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

@@ -11,9 +11,15 @@ public class EmenyBullet : MonoBehaviour
 
     private float speed = 10.0F;
 
+    [SerializeField]
+    private bool bullet_destroy_ignore = false;
+
+    [SerializeField]
+    private float fade_time = 2.5F;
+    
     private void Start()
     {
-        Destroy(gameObject, 2.5F);
+        Destroy(gameObject, fade_time);
     }
 
     protected virtual void Update()
@@ -22,8 +28,30 @@ public class EmenyBullet : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, transform.position + Direction, speed * Time.deltaTime);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        NewHero NewHero = collision.gameObject.GetComponent<NewHero>();
+        if (NewHero)
+        {
+            NewHero.ReciveDamage(1);
+            Destroy(gameObject);
+
+            BulletDestroy.BangHere(GetComponent<Collider2D>().transform);
+        }
+
+        bulletHero bulletHero = collision.gameObject.GetComponent<bulletHero>();
+
+        if (bulletHero)
+        {
+            Destroy(gameObject);
+
+            BulletDestroy.BangHere(GetComponent<Collider2D>().transform);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        
         NewHero NewHero = collider.GetComponent<NewHero>();
 
         if (NewHero)
@@ -49,6 +77,7 @@ public class EmenyBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
 
 }
