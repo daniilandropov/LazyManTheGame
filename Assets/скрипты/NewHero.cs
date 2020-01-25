@@ -87,11 +87,13 @@ public class NewHero : Unit {
     {
         if (isGrounded) State = CharState.Idle;
 
-        if ((Input.GetKeyDown(KeyCode.Z)/* || joyButtonDS.Pressed*/) & ShootTimer <= 0) ShootDS();
-        if ((Input.GetKeyDown(KeyCode.X)/* || joyButtonPSP.Pressed*/) & ShootTimer <= 0) ShootPSP();
-        if ((Input.GetKeyDown(KeyCode.C) /*|| joyButtonGB.Pressed*/) & ShootTimer <= 0) ShootGAMEBOY();
+        if ((Input.GetButton("Fire1")/* || joyButtonDS.Pressed*/) & ShootTimer <= 0) ShootDS();
+        if ((Input.GetButton("Fire2")/* || joyButtonPSP.Pressed*/) & ShootTimer <= 0) ShootPSP();
+        if ((Input.GetButton("Fire3")/*|| joyButtonGB.Pressed*/) & ShootTimer <= 0) ShootGAMEBOY();
 
-        if (Input.GetButton("Horizontal")) Run(Input.GetAxis("Horizontal"));
+        Debug.Log(Input.GetAxis("Horizontal"));
+
+        if (Input.GetButton("Horizontal") || Input.GetAxis("Horizontal") != 0) Run(Input.GetAxis("Horizontal"));
         //if (joystick.Horizontal != 0) Run(joystick.Horizontal);
         if (Input.GetButtonDown("Jump")) if (isGrounded)
         {

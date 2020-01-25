@@ -1,4 +1,4 @@
 sceneSetups:
-- path: "Assets/\u0444\u043E\u043D\u044B/\u0441\u0446\u0435\u043D\u044B/forest.unity"
+- path: "Assets/\u0444\u043E\u043D\u044B/\u0441\u0446\u0435\u043D\u044B/123.unity"
   isLoaded: 1
   isActive: 1

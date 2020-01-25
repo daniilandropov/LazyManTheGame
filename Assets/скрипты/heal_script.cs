@@ -11,18 +11,17 @@ public class heal_script : MonoBehaviour
     [SerializeField]
     AudioSource takeAudioSource;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        NewHero NewHero = other.GetComponent<NewHero>();
+        NewHero unit = collision.gameObject.GetComponent<NewHero>();
 
-        if (NewHero)
+        if (unit)
         {
             if (takeAudioSource != null && takeAudio != null)
                 takeAudioSource.PlayOneShot(takeAudio);
 
-            NewHero.Health = hp_points;
+            unit.Health = hp_points;
             Destroy(gameObject);
         }
-
     }
 }

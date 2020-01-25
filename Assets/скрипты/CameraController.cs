@@ -7,6 +7,9 @@ public class CameraController : MonoBehaviour
     private float speed = 0.0F;
 
     [SerializeField]
+    private bool folowPlayer = true;
+
+    [SerializeField]
     private Transform target;
 
     Vector3 MemoryPosition;
@@ -18,13 +21,17 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        try { 
-            Vector3 position = target.position;
-            position.z = -10.0F;
-            position.y += 1.0F;
-            position.x += 3.0f;
-            transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
-            MemoryPosition = target.position;
+        try {
+            if (folowPlayer)
+            {
+                Vector3 position = target.position;
+                position.z = -10.0F;
+                position.y += 1.0F;
+                position.x += 3.0f;
+                transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
+                MemoryPosition = target.position;
+            }
+            
         }
         catch
         {

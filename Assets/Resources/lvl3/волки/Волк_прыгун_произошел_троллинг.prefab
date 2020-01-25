@@ -439,9 +439,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7533dcb821c21c647877d4d64e2d64a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  sprite_damage: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  health: 2
+  sprite_damage: {fileID: 21300032, guid: c4d011577289a0a40991269fa5b81893, type: 3}
+  sprite: {fileID: 0}
+  defaultSprite: {fileID: 21300012, guid: c4d011577289a0a40991269fa5b81893, type: 3}
   damageAudio: {fileID: 8300000, guid: 4c59652469d427f48a195e9d61c699af, type: 3}
   damageAudioSource: {fileID: 7152671189023760759}
   speed: 9

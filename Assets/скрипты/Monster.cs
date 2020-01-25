@@ -21,7 +21,7 @@ public class Monster : Unit {
 
     protected NewHero LazyMan;
 
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
     [SerializeField]
     private Sprite defaultSprite;
 
@@ -66,7 +66,7 @@ public class Monster : Unit {
         sprite.sprite = defaultSprite;
     }
 
-    protected void Die()
+    protected override void Die()
     {
         if (!active)
             return;
